@@ -74,7 +74,7 @@ from rest_framework.permissions import IsAuthenticated
 # vendor management
 class VendorView(APIView):
     
-    # permission_classes = [ IsAuthenticated ]
+    permission_classes = [ IsAuthenticated ]
     def get(self,request,pk=None):
         if pk!=None:
             vendor=Vendor.objects.get(id=pk)
@@ -109,7 +109,7 @@ class VendorView(APIView):
 
 class Purchase_orderView(APIView):
     
-    # permission_classes = [ IsAuthenticated ]
+    permission_classes = [ IsAuthenticated ]
     
     def get(self,request,pk=None):
         if pk!=None:
@@ -147,7 +147,7 @@ class Purchase_orderView(APIView):
 
 class Vendor_performance_HistoryView(APIView):
     
-    # permission_classes = [ IsAuthenticated ]
+    permission_classes = [ IsAuthenticated ]
     def get(self,request,pk=None):
         if pk!=None:
             vendor_performance_history=Vendor_performance_History.objects.filter(vendor_id=pk)
@@ -159,7 +159,7 @@ class Vendor_performance_HistoryView(APIView):
 
 
 class VendorPerformance(APIView):
-    # permission_classes = [ IsAuthenticated ]
+    permission_classes = [ IsAuthenticated ]
     def get(self,request,pk):
         try:
             vendor_performance=Vendor.objects.get(id=pk)
@@ -170,7 +170,7 @@ class VendorPerformance(APIView):
                
 
 class PerchaseOrderAcknowledge(APIView):
-    # permission_classes = [ IsAuthenticated ]
+    permission_classes = [ IsAuthenticated ]
     def post(self,request,pk):
         try:
             purchase_order=Purchase_order.objects.get(id=pk)
